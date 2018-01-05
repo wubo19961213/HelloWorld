@@ -1,8 +1,21 @@
-package com.Demo_1;
+package property;
 
 public class Item {
 	private String name;
 	private int price;
+	public Item() {
+		// TODO Auto-generated constructor stub
+	}
+	/*private Item() {};
+	private static Item i;
+	public static Item getItem()
+	{
+		if(null == i)
+		{
+			i = new Item();
+		}
+		return i;
+	}*/
 	public String getName()
 	{
 		return this.name;
