@@ -13,5 +13,11 @@ public class Armor extends Item{
 		a.ac = 15;
 		System.out.println(a.toString());
 	}
+	@Override
+	public boolean disposable() {
+		// TODO Auto-generated method stub
+		System.out.println("ËğºÄÁË");
+		return true;
+	}
 
 }

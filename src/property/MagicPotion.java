@@ -11,4 +11,10 @@ public class MagicPotion extends Item {
 
 	}
 
+	@Override
+	public boolean disposable() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
 }
