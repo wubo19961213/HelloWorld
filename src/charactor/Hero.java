@@ -1,5 +1,7 @@
 package charactor;
 
+import Interface.Mortal;
+
 public class Hero {
 	public String name;
 	float hp;
@@ -12,6 +14,9 @@ public class Hero {
 	{
 		return h;
 	}*/
+	public Hero(String name){
+		  this.name = name;
+	}
 	public void legendary()
 	{
 		System.out.println("Œ““—≥¨…Ò£°");
@@ -26,18 +31,24 @@ public class Hero {
 	}
 	public void revive(Hero h)
 	{
-		h = new Hero();
+		h = new Hero("");
 		h.hp = 300;
+	}
+	public void kill(Mortal i)
+	{
+		i.die();
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Hero h = new Hero();
+		Hero h = new Hero("");
 		h.armor = 32;
 		h.hp	= 23;
 		h.recovery(21);
 		h.revive(h);
+		ADHero a =new ADHero();
 		System.out.println(h.armor+","+h.getHp());
 		h.legendary();
+		h.kill(a);
 	}
 
 }

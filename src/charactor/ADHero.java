@@ -1,6 +1,8 @@
 package charactor;
 
-public class ADHero extends Hero {
+import Interface.Mortal;
+
+public class ADHero extends Hero implements Mortal{
 
 	public void attack() 
 	{
@@ -23,7 +25,7 @@ public class ADHero extends Hero {
 	}
 	public ADHero(String _name,float _armor)
 	{
-		this.name 	= _name;
+		super(_name);
 		this.armor 	= _armor;
 	}
 	public ADHero(String _name,float _armor,float _hp,int _moveSpeed)
@@ -33,6 +35,7 @@ public class ADHero extends Hero {
 		this.moveSpeed	= _moveSpeed;
 	}
 	public ADHero() {
+		super("");
 		// TODO Auto-generated constructor stub
 	}
 	public static void main(String[] args) {
@@ -40,13 +43,18 @@ public class ADHero extends Hero {
 		ADHero a = new ADHero();
 		ADHero.copyright = "Blizzard Entertainment Enterprise";
 		a.name = "A”¢–€";
-		Hero b = new Hero();
+		Hero b = new Hero("");
 		b.name = "B”¢–€";
 		ADHero c = new ADHero("C”¢–€",1,23,200);
 		a.attack();
 		a.attack(b,c);
 		System.out.println(c.armor + "/" + c.copyright);
 		a.heal(c, 23);
+	}
+	@Override
+	public void die() {
+		// TODO Auto-generated method stub
+		System.out.println("∑≤»À÷’”–“ªÀ¿£°");
 	}
 
 }
