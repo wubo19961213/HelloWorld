@@ -1,8 +1,9 @@
 package charactor;
 
 import Interface.Mortal;
+import arrayList.HeroNItem;
 
-public class Hero {
+public class Hero extends HeroNItem{
 	public String name;
 	float hp;
 	float armor;
@@ -14,6 +15,10 @@ public class Hero {
 	{
 		return h;
 	}*/
+	public String toString()
+	{
+		return this.name;
+	}
 	public Hero(String name){
 		  this.name = name;
 	}

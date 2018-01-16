@@ -1,6 +1,8 @@
 package property;
 
-public abstract class Item {
+import arrayList.HeroNItem;
+
+public abstract class Item extends HeroNItem{
 	private String name;
 	private int price;
 	public Item() {
