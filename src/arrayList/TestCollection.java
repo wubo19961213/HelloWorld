@@ -5,6 +5,7 @@ import java.util.Deque;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 import charactor.Hero;
 
@@ -50,17 +51,18 @@ public class TestCollection {
         	System.out.println(h);
         }
 		*/
-		Deque<Hero> q= new LinkedList<Hero>();
+		Queue<Hero> q= new LinkedList<Hero>();
 		//q.add(new Hero(Hero1));
-		q.addFirst(new Hero("Hero1"));
-		q.addFirst(new Hero("Hero2"));
-		q.addFirst(new Hero("Hero3"));
-		q.addFirst(new Hero("Hero4"));
-		q.addFirst(new Hero("Hero5"));
+		q.offer(new Hero("Hero1"));
+		q.offer(new Hero("Hero2"));
+		q.offer(new Hero("Hero3"));
+		q.offer(new Hero("Hero4"));
+		q.offer(new Hero("Hero5"));
 		Hero hero = q.poll();
 		System.out.println(hero);
 		Hero hero1 = q.poll();
 		System.out.println(hero1);
+		System.out.println(q);
 		
 	}
 

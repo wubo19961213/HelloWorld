@@ -5,16 +5,34 @@ import arrayList.HeroNItem;
 
 public class Hero extends HeroNItem{
 	public String name;
-	float hp;
+	public float hp;
 	float armor;
 	int moveSpeed;
 	static String copyright;
-	/*private Hero() {};
-	private static Hero h = new Hero();
-	public static Hero getHero()
+	public int damage;
+	public void attackHero(Hero h)
 	{
-		return h;
-	}*/
+		try {
+			Thread.sleep(1000);
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		h.hp -= damage;
+		System.out.format("%s 正在攻击 %s,%s 的血变成了 %.0f %n",name,h.name,h.name,h.hp);
+		if(h.isDead())
+		{
+			System.out.println(h.name+"死了！");
+		}
+	}
+	public void podon(int i)
+	{
+		System.out.println("波动拳第"+i+"发！");
+	}
+	public boolean isDead()
+	{
+		return 0>=hp?true:false;
+	}
 	public String toString()
 	{
 		return this.name;
