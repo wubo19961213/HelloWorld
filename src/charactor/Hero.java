@@ -4,6 +4,7 @@ import Interface.Mortal;
 import arrayList.HeroNItem;
 
 public class Hero extends HeroNItem{
+	public int id;
 	public String name;
 	public float hp;
 	float armor;
@@ -48,9 +49,26 @@ public class Hero extends HeroNItem{
 	{
 		return this.hp;
 	}
-	public void recovery(float armor)
+	public synchronized void recovery()
 	{
-		this.armor +=armor;
+		this.hp += 1;
+		System.out.printf("%s 回血1点,增加血后，%s的血量是%.0f%n", name, name, hp);
+        // 通知那些等待在this对象上的线程，可以醒过来了，如第20行，等待着的减血线程，苏醒过来
+        this.notify();
+	}
+	public synchronized void hurt()
+	{
+		if(this.hp == 1)
+		{
+			try {
+				this.wait();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+		this.hp -= 1;
+		System.out.printf("%s 减少1点血，现在的血量为 %.0f\n",this.name,this.hp);
 	}
 	public void revive(Hero h)
 	{
@@ -66,7 +84,7 @@ public class Hero extends HeroNItem{
 		Hero h = new Hero("");
 		h.armor = 32;
 		h.hp	= 23;
-		h.recovery(21);
+		h.recovery();
 		h.revive(h);
 		ADHero a =new ADHero();
 		System.out.println(h.armor+","+h.getHp());

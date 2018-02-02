@@ -8,7 +8,7 @@ public class TestThread {
          
         Hero gareen = new Hero("");
         gareen.name = "¸ÇÂ×";
-        gareen.hp = 616;
+        gareen.hp = 10;
         gareen.damage = 1;
  
         Hero teemo = new Hero("");
@@ -16,7 +16,7 @@ public class TestThread {
         teemo.hp = 300;
         teemo.damage = 1;
          
-        Hero bh = new Hero("");
+        /*Hero bh = new Hero("");
         bh.name = "ÉÍ½ðÁÔÈË";
         bh.hp = 500;
         bh.damage = 1;
@@ -24,7 +24,7 @@ public class TestThread {
         Hero leesin = new Hero("");
         leesin.name = "Ã¤É®";
         leesin.hp = 455;
-        leesin.damage = 1;
+        leesin.damage = 1;*/
          
         //¸ÇÂ×¹¥»÷ÌáÄª
         /*while(!teemo.isDead()){
@@ -39,23 +39,56 @@ public class TestThread {
         killThread1.start();
         KillThread killThread2 = new KillThread(bh,leesin);
         killThread2.start();*/
-        Battle b1 = new Battle(bh, leesin);
-        Thread thread1 = new Thread(b1);
+        //Battle b1 = new Battle(bh, leesin);
+        //Thread thread1 = new Thread(b1);
         /*try {
         	thread1.join();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}*/
-        Battle b2 = new Battle(gareen,teemo);
-        Thread thread2 = new Thread(b2);
+        //Battle b2 = new Battle(gareen,teemo);
+        //Thread thread2 = new Thread(b2);
         //thread1.setPriority(Thread.MAX_PRIORITY);
         //thread2.setPriority(Thread.MIN_PRIORITY);
-        thread1.start();
+        //thread1.start();
         //thread1.sleep();
         //thread2.start();
-        
-        
+        Thread t1 = new Thread(){
+            public void run(){
+                while(true){
+                       
+                    //ÎÞÐèÑ­»·ÅÐ¶Ï
+//                    while(gareen.hp==1){
+//                        continue;
+//                    }
+                       
+                    gareen.hurt();
+                     
+                   /* try {
+                        Thread.sleep(10);
+                    } catch (InterruptedException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }*/
+                }
+   
+            }
+        };
+        t1.start();
+        Thread t2 = new Thread() {
+        	public void run()
+        	{
+        		gareen.recovery();
+        		try {
+					Thread.sleep(10);
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+        	}
+        };
+        t2.start();
     }
      
 }
