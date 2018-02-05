@@ -41,6 +41,15 @@ public class Hero extends HeroNItem{
 	public Hero(String name){
 		  this.name = name;
 	}
+	public Hero()
+	{}
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public void legendary()
 	{
 		System.out.println("Œ““—≥¨…Ò£°");
